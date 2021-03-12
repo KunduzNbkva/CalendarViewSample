@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">CalendarViewSample</string>
+    <string name="show">Показать</string>
+    <string name="Monday">Пн</string>
+    <string name="Tuesday">Вт</string>
+    <string name="Wednesday">Ср</string>
+    <string name="Thursday">Чт</string>
+    <string name="Friday">Пт</string>
+    <string name="Saturday">Сб</string>
+    <string name="Sunday">Вс</string>
+    <string name="Day">За день</string>
+    <string name="_7Days">За 7 дней</string>
+    <string name="month">За месяц</string>
+    <string name="Show">Показать</string>
+</resources>

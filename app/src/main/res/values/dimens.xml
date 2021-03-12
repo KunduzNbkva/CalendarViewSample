@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="padding5">5dp</dimen>
+    <dimen name="padding20">20dp</dimen>
+    <dimen name="padding10">10dp</dimen>
+    <dimen name="peek_height">80dp</dimen>
+    <dimen name="margin_20">20dp</dimen>
+    <dimen name="margin_15">15dp</dimen>
+    <dimen name="margin_40">40dp</dimen>
+    <dimen name="width_100">100dp </dimen>
+    <dimen name="height_50">50dp</dimen>
+    <dimen name="height_width24">24dp</dimen>
+    <dimen name="month_textSize">26sp</dimen>
+
+</resources>

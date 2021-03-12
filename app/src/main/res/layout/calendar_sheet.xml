@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:id="@+id/bottom_sheet"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="@dimen/padding5"
+    android:background="@drawable/bottom_sheet_background"
+    app:behavior_hideable="true"
+    app:behavior_peekHeight="@dimen/peek_height"
+    tools:context=".CalendarSheet">
+    <View
+        android:layout_width="@dimen/width_100"
+        android:layout_height="4dp"
+        android:layout_margin="@dimen/margin_20"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/seven_days"
+        android:background="@drawable/rounded_view"
+        />
+
+
+    <Button
+        android:id="@+id/day"
+        style="@style/ButtonStyle"
+        android:text="@string/Day"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/month_year"
+        app:layout_constraintEnd_toStartOf="@id/seven_days" />
+    <Button
+        android:id="@+id/seven_days"
+        android:text="@string/_7Days"
+        style="@style/ButtonStyle"
+        app:layout_constraintStart_toEndOf="@id/day"
+        app:layout_constraintBottom_toTopOf="@id/month_year" />
+    <Button
+        android:id="@+id/month"
+        android:text="@string/month"
+        style="@style/ButtonStyle"
+        app:layout_constraintStart_toEndOf="@id/seven_days"
+        app:layout_constraintBottom_toTopOf="@id/month_year" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/month_year"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="@dimen/padding20"
+            android:paddingBottom="@dimen/padding10"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/calendarView">
+
+            <TextView
+                android:id="@+id/monthYearText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textColor="@color/black"
+                android:textSize="@dimen/month_textSize"
+                android:fontFamily="@font/mediumfirasans"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="May 2019" />
+
+            <ImageView
+                android:id="@+id/previousMonthImage"
+                android:layout_width="@dimen/height_width24"
+                android:layout_height="@dimen/height_width24"
+                android:layout_marginEnd="@dimen/margin_40"
+                android:src="@drawable/ic_arrow_left"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/monthYearText"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/nextMonthImage"
+                android:layout_width="@dimen/height_width24"
+                android:layout_height="@dimen/height_width24"
+                android:layout_marginStart="@dimen/margin_40"
+                android:src="@drawable/ic_arrow_right"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/monthYearText"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <com.kizitonwose.calendarview.CalendarView
+        android:id="@+id/calendarView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cv_monthHeaderResource="@layout/calendar_week_title"
+        app:cv_dayViewResource="@layout/calendar_day_layout"
+        app:cv_orientation="horizontal"
+        app:cv_scrollMode="paged"
+        app:cv_maxRowCount="5"
+        app:layout_constraintBottom_toTopOf="@id/btn_select"
+        app:layout_constraintStart_toStartOf="parent"
+        app:cv_inDateStyle="allMonths"
+        app:cv_outDateStyle="endOfGrid"
+        android:layout_marginBottom="@dimen/margin_15"/>
+    <Button
+        android:id="@+id/btn_select"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/height_50"
+        android:layout_margin="@dimen/margin_15"
+        android:background="@drawable/btnstyle"
+        android:text="@string/Show"
+        android:textColor="@color/black"
+        android:textSize="@dimen/month_textSize"
+        android:textAllCaps="false"
+        android:fontFamily="@font/mediumfirasans"
+        app:layout_constraintBottom_toBottomOf="parent"
+        />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

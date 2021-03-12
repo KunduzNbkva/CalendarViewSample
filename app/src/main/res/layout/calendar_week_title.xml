@@ -1,0 +1,43 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/legendLayout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center"
+    android:orientation="horizontal">
+
+    <TextView
+        android:id="@+id/legendText1"
+        android:text="@string/Monday"
+        style="@style/WeekDayStyle"/>
+
+    <TextView
+        android:id="@+id/legendText2"
+        android:text="@string/Tuesday"
+        style="@style/WeekDayStyle"/>
+
+    <TextView
+        android:id="@+id/legendText3"
+        android:text="@string/Wednesday"
+        style="@style/WeekDayStyle"/>
+
+    <TextView
+        android:id="@+id/legendText4"
+        android:text="@string/Thursday"
+        style="@style/WeekDayStyle"/>
+
+    <TextView
+        android:id="@+id/legendText5"
+        android:text="@string/Friday"
+        style="@style/WeekDayStyle" />
+
+    <TextView
+        android:id="@+id/legendText6"
+        android:text="@string/Saturday"
+        style="@style/WeekDayStyle" />
+
+    <TextView
+        android:id="@+id/legendText7"
+        android:text="@string/Sunday"
+        style="@style/WeekDayStyle"/>
+
+</LinearLayout>
