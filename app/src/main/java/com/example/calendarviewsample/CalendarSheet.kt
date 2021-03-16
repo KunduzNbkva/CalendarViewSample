@@ -3,6 +3,7 @@ package com.example.calendarviewsample
 import android.annotation.SuppressLint
 import android.graphics.Color
 import android.graphics.drawable.GradientDrawable
+import android.icu.util.Calendar
 import android.os.Build
 import android.os.Bundle
 import android.util.Log
@@ -136,6 +137,7 @@ class CalendarSheet(themeI: Int) : BottomSheetDialogFragment() {
             override fun create(view: View) = DayViewContainer(view)
 
             // Called every time we need to reuse a container.
+            @RequiresApi(Build.VERSION_CODES.N)
             @SuppressLint("ResourceAsColor")
             override fun bind(container: DayViewContainer, day: CalendarDay) {
                 container.textView.text = day.date.dayOfMonth.toString()
@@ -173,7 +175,15 @@ class CalendarSheet(themeI: Int) : BottomSheetDialogFragment() {
                             }
                             startDate != null && endDate != null && (day.date > startDate && day.date < endDate) -> {
                                 textView.setTextColor(Color.BLACK)
-                                textView.setBackgroundResource(R.drawable.continuous_selected_bg_middle)
+                                val dayOfWeek = day.date.dayOfWeek
+                                when(dayOfWeek){
+                                    DayOfWeek.MONDAY ->
+                                        textView.setBackgroundResource(R.drawable.start_selected_bg)
+                                    DayOfWeek.SUNDAY ->
+                                        textView.setBackgroundResource(R.drawable.end_selected_bg)
+                                    else ->
+                                        textView.setBackgroundResource(R.drawable.continuous_selected_bg_middle)
+                                }
                             }
                             day.date == endDate -> {
                                 textView.setTextColor(Color.BLACK)
@@ -184,6 +194,7 @@ class CalendarSheet(themeI: Int) : BottomSheetDialogFragment() {
                                 roundBgView.makeVisible()
                                 roundBgView.setBackgroundResource(R.drawable.example_4_today_bg)
                             }
+
                             else -> textView.setTextColorRes(R.color.example_4_grey)
                         }
                     }
@@ -205,6 +216,11 @@ class CalendarSheet(themeI: Int) : BottomSheetDialogFragment() {
         }
     }
 
+//    private fun setEndStartBack(){
+//        val range = startDate..endDate
+//        for(i in iterator<CalendarDay> {startDate..}
+//    }
+
 
     private fun isInDateBetween(inDate: LocalDate, startDate: LocalDate, endDate: LocalDate): Boolean {
         if (startDate.yearMonth == endDate.yearMonth) return false
@@ -219,6 +235,8 @@ class CalendarSheet(themeI: Int) : BottomSheetDialogFragment() {
         val lastDateInThisMonth = outDate.minusMonths(1).yearMonth.atEndOfMonth()
         return lastDateInThisMonth >= startDate && lastDateInThisMonth <= endDate && endDate != lastDateInThisMonth
     }
+
+
 
     private fun setMonthBinder() {
         class MonthViewContainer(view: View) : ViewContainer(view)
@@ -278,4 +296,5 @@ class CalendarSheet(themeI: Int) : BottomSheetDialogFragment() {
         binding!!.btnSelect.setOnClickListener(clickListener)
     }
 }
+
 
